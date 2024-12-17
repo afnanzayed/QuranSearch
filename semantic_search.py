@@ -4,10 +4,21 @@ from transformers import AutoTokenizer, AutoModel
 import requests
 import torch
 
-# Load the locally saved model
-model_path = "/Users/afnanalamri/Desktop/MyProject/LeapAI/FrontEndTask/models"
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-model = AutoModel.from_pretrained(model_path)
+
+
+# Load the model directly from Hugging Face (requires an active internet connection)
+model_name = "CAMeL-Lab/bert-base-arabic-camelbert-mix"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModel.from_pretrained(model_name)
+
+# If you face any issues with downloading the model, it is recommended to download it locally
+# and use the following code to load the model from your device:
+
+# Dynamically load the path to the 'models' directory
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# model_path = os.path.join(current_dir, "models")
+# tokenizer = AutoTokenizer.from_pretrained(model_path)
+# model = AutoModel.from_pretrained(model_path, from_tf=False)
 
 # Function to generate embeddings
 def generate_embedding(text):

@@ -1,0 +1,7 @@
+Flask==3.0.3
+Flask-Cors==5.0.0
+requests==2.32.3
+qdrant-client==1.12.1
+transformers==4.47.0
+torch==2.1.0
+protobuf==3.20.0
